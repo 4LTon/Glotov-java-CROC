@@ -16,8 +16,16 @@ public class Annotation {
         figure = new Rectangle(x0, y0, x1, y1);
     }
 
+    public boolean pointInShape(int x, int y) {
+        return figure.pointInShape(x, y);
+    }
+
     public String getSignature() {
         return signature;
+    }
+
+    public void move(int x, int y){
+        figure.move(x, y);
     }
 
     @Override
