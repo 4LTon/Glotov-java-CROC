@@ -27,7 +27,7 @@ public class Directory {
     public static boolean isFileExtensionLog(Path path) {
         String fileName = path.getFileName().toString();
         int lastIndexOf = fileName.lastIndexOf(".");
-        if (lastIndexOf == -1 || fileName.equals("MAIN.log")) return false;
+        if (lastIndexOf == -1) return false;
 
         String fileExtension = fileName.substring(lastIndexOf);
         return  fileExtension.equals(".log") || fileExtension.equals(".trace");
