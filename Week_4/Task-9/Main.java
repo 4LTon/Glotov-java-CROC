@@ -84,14 +84,10 @@ public class Main {
         }
     }
 
-    // вывести список MAIN.log
+    // вывести список логов
     public static void showTheListOfLogs() {
         for (String line : lines) {
             System.out.println(line);
         }
-    }
-
-    public static void addListToMainLog() {
-
     }
 }
