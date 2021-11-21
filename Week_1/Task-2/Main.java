@@ -16,11 +16,12 @@ public class Main {
          * Для определения подходящей приставки используется рекурсивный счетчик
          * Он определяет сколько раз вводимое число можно поделить на 1024
          */
+        int countForPrefix = getCount(bytes);
 
         // Формирование выводимого числа
-        double result = getCount(bytes) == 0 ? bytes : bytes / (Math.pow(2,10 * getCount(bytes)));
+        double result = getCount(bytes) == 0 ? bytes : bytes / (Math.pow(2,10 * countForPrefix);
 
-        return String.format("%.1f", result) + " " + prefix[getCount(bytes)] + "B";
+        return String.format("%.1f", result) + " " + prefix[countForPrefix] + "B";
     }
 
     // Рекурсивный счетчик
