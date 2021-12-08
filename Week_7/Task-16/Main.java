@@ -58,7 +58,7 @@ public class Main {
     // Выводит результат
     public static void showResult(TreeMap<Integer, ArrayList<Respondent>> split) {
         for (int i = groups.size() - 1; i <= 0; i--) {
-            
+            // TODO: придумать как вывести объекты
         }
     }
 }
