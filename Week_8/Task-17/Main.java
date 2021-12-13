@@ -22,12 +22,12 @@ public class Main {
         }
     }
 
-    /** Метод, создающий таблицы
+    /** РњРµС‚РѕРґ, СЃРѕР·РґР°СЋС‰РёР№ С‚Р°Р±Р»РёС†С‹
      * <P>
-     * Реализация таблиц будет Многие ко Многим с промежуточной таблицей PURCHASE
+     * Р РµР°Р»РёР·Р°С†РёСЏ С‚Р°Р±Р»РёС† Р±СѓРґРµС‚ РњРЅРѕРіРёРµ РєРѕ РњРЅРѕРіРёРј СЃ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅРѕР№ С‚Р°Р±Р»РёС†РµР№ PURCHASE
      *
-     * Один товар (по артиклу) может быть заказан несколькими покупателями,
-     * a покупатель может купить несколько товаров (по артиклу) **/
+     * РћРґРёРЅ С‚РѕРІР°СЂ (РїРѕ Р°СЂС‚РёРєР»Сѓ) РјРѕР¶РµС‚ Р±С‹С‚СЊ Р·Р°РєР°Р·Р°РЅ РЅРµСЃРєРѕР»СЊРєРёРјРё РїРѕРєСѓРїР°С‚РµР»СЏРјРё,
+     * a РїРѕРєСѓРїР°С‚РµР»СЊ РјРѕР¶РµС‚ РєСѓРїРёС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ С‚РѕРІР°СЂРѕРІ (РїРѕ Р°СЂС‚РёРєР»Сѓ) **/
     public static void createTables(Connection connection) throws SQLException {
         try (Statement statement = connection.createStatement()) {
 
@@ -53,12 +53,12 @@ public class Main {
                     "DROP TABLE IF EXISTS Buyers;\n" +
                     "DROP TABLE IF EXISTS Purchase\n;";
 
-            statement.executeUpdate(drop_DBs);  // удаляем существующие таблицы
-            statement.executeUpdate(DBs);   // создаем таблицы
+            statement.executeUpdate(drop_DBs);  // СѓРґР°Р»СЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ С‚Р°Р±Р»РёС†С‹
+            statement.executeUpdate(DBs);   // СЃРѕР·РґР°РµРј С‚Р°Р±Р»РёС†С‹
         }
     }
 
-    /** Метод заполняет таблицу **/
+    /** РњРµС‚РѕРґ Р·Р°РїРѕР»РЅСЏРµС‚ С‚Р°Р±Р»РёС†Сѓ **/
     public static void initTables(String pathCSV, Connection connection) throws IOException, SQLException {
         BufferedReader reader = new BufferedReader(new FileReader(pathCSV));
         String line;
@@ -79,7 +79,7 @@ public class Main {
         }
     }
 
-    /** Метод проверяет существутет ли значение по запросу **/
+    /** РњРµС‚РѕРґ РїСЂРѕРІРµСЂСЏРµС‚ СЃСѓС‰РµСЃС‚РІСѓС‚РµС‚ Р»Рё Р·РЅР°С‡РµРЅРёРµ РїРѕ Р·Р°РїСЂРѕСЃСѓ **/
     public static boolean check(Connection connection, String sql, String thing) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, thing);
@@ -89,7 +89,7 @@ public class Main {
         }
     }
 
-    /** Метод добавляет покупателя в таблицу **/
+    /** РњРµС‚РѕРґ РґРѕР±Р°РІР»СЏРµС‚ РїРѕРєСѓРїР°С‚РµР»СЏ РІ С‚Р°Р±Р»РёС†Сѓ **/
     public static void insertBuyer(Connection connection, int ID, String name) throws SQLException {
         String sql = "INSERT INTO Buyers values(?,?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -99,7 +99,7 @@ public class Main {
         }
     }
 
-    /** Метод добавляет новый продукт к таблице **/
+    /** РњРµС‚РѕРґ РґРѕР±Р°РІР»СЏРµС‚ РЅРѕРІС‹Р№ РїСЂРѕРґСѓРєС‚ Рє С‚Р°Р±Р»РёС†Рµ **/
     public static void insertProduct(Connection connection, String article, String productName, int cost) throws SQLException {
         String sql = "INSERT INTO Products VALUES(?,?,?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -110,7 +110,7 @@ public class Main {
         }
     }
 
-    /** Метод добавляет новую покупку в таблцу **/
+    /** РњРµС‚РѕРґ РґРѕР±Р°РІР»СЏРµС‚ РЅРѕРІСѓСЋ РїРѕРєСѓРїРєСѓ РІ С‚Р°Р±Р»С†Сѓ **/
     public static void insertPurchase(Connection connection, int ID, String article) throws SQLException {
         String sql = "INSERT INTO Purchase VALUERS(?,?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
